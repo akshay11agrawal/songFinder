@@ -1,9 +1,15 @@
 server:
   port: 8080
 
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: sbproject
+    ivGeneratorClassname: org.jasypt.iv.NoIvGenerator
+
 song-details:
   host: https://shazam.p.rapidapi.com/search
-  key: 7c05c72894msh3e00caa1d6ef45cp158d5cjsnd2c1d65184e4
+  key: fqWShGla2oc0crScstRGxggbW4iBhKMGiFN5pQjPfzTrmgifsB0GMnWiL8NsolV9+Ui9NcszGiHjb16U1FvRIQ==
   rhost: shazam.p.rapidapi.com
   offset: 0
   limit: 5

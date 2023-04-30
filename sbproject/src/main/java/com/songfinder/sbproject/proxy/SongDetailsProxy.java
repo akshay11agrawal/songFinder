@@ -3,6 +3,7 @@ package com.songfinder.sbproject.proxy;
 import com.songfinder.sbproject.domain.Response;
 import com.songfinder.sbproject.domain.exception.APIErrorException;
 import lombok.extern.slf4j.Slf4j;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,8 @@ public class SongDetailsProxy {
 
     @Autowired
     private WebClient webClient;
+    @Autowired
+    private StringEncryptor encryptor;
 
     @Value("${song-details.host}")
     private String host;
@@ -52,7 +55,7 @@ public class SongDetailsProxy {
          webClient.get()
                 .uri(uri)
                  .headers(httpHeaders -> {
-                     httpHeaders.set("X-RapidAPI-Key",key);
+                     httpHeaders.set("X-RapidAPI-Key", encryptor.decrypt(key));
                      httpHeaders.set("X-RapidAPI-Host",rHost);
                  })
                 .retrieve()

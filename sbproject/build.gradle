@@ -23,6 +23,9 @@ dependencies {
 	implementation group: 'org.springframework', name: 'spring-webflux', version: '6.0.7'
 	implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 	implementation group: 'io.vavr', name: 'vavr', version: '1.0.0-alpha-4'
+	implementation 'org.jasypt:jasypt:1.9.3'
+	implementation 'org.apache.commons:commons-collections4:4.4'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
