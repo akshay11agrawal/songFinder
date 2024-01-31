@@ -23,6 +23,7 @@ public class SongDetailsProxy {
 
     @Autowired
     private WebClient webClient;
+
     @Autowired
     private StringEncryptor encryptor;
 
@@ -56,6 +57,7 @@ public class SongDetailsProxy {
                 .uri(uri)
                  .headers(httpHeaders -> {
                      httpHeaders.set("X-RapidAPI-Key", encryptor.decrypt(key));
+                     httpHeaders.set("X-RapidAPI-Key",key);
                      httpHeaders.set("X-RapidAPI-Host",rHost);
                  })
                 .retrieve()

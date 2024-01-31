@@ -9,7 +9,7 @@ jasypt:
 
 song-details:
   host: https://shazam.p.rapidapi.com/search
-  key: *****
+  key: 
   rhost: shazam.p.rapidapi.com
   offset: 0
   limit: 5
