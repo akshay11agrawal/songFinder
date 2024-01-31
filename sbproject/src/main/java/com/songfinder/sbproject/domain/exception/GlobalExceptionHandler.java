@@ -11,6 +11,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(APIErrorException.class)
     public ResponseEntity<ErrorResponse> handleAPIErrorException(APIErrorException ex) {
         String error = "An error occurred. Please try again later.";
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+        return new ResponseEntity<>(ErrorResponse.builder().message(error)
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value()).build(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

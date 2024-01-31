@@ -23,12 +23,10 @@ public class SongDetailsController {
     @GetMapping("/song")
     public Response printSongInformation(@RequestBody RequestDTO request) throws ExecutionException, InterruptedException {
 
-        if(request.getSearchTerm().equals(""))
+        if(request.getSearchTerm().isEmpty())
             throw new APIErrorException(HttpStatus.BAD_REQUEST.value(), "Please put correct search term");
 
         return service.getSong(request.getSearchTerm());
-
-       return service.getSong(request.getSearchTerm());
 
     }
 }
